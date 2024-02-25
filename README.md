@@ -1,26 +1,18 @@
 <div align="center">
 
 <h1>Tokenize Anything via Prompting</h1>
-
-[Ting Pan](https://github.com/PhyscalX/)<sup>1,2*</sup>, &nbsp; [Lulu Tang](https://github.com/lulutang0608)<sup>2*</sup>, &nbsp; [Xinlong Wang](https://www.xloong.wang/)<sup>2¶</sup>, &nbsp; [Shiguang Shan](https://scholar.google.com/citations?user=Vkzd7MIAAAAJ&hl=en)<sup>1</sup>
-
-<sup>1</sup>[ICT-CAS](http://english.ict.cas.cn/), &nbsp; <sup>2</sup>[BAAI](https://www.baai.ac.cn/english.html)<br>
-<sup>*</sup> Equal Contribution, <sup>¶</sup>Project Lead
-
-[[`Paper`](https://arxiv.org/pdf/2312.09128.pdf)] [[`🤗 Demo`](https://huggingface.co/spaces/BAAI/tokenize-anything)]
 <br><br><image src="assets/model_overview.png"/>
 
-</div>
-
-We present **T**okenize **A**nything via **P**rompting, a unified and promptable model capable of simultaneously segmenting, recognizing, and captioning arbitrary regions, with flexible visual prompts (point, box and sketch). The model is trained with exhaustive segmentation masks sourced from SA-1B, coupled with semantic priors from a pre-trained EVA-CLIP with 5 billion parameters.
+## News
+[Feb.25 2024] Referring to SAM (Meta), TapPredictor has been implemented to enable multiple prompt-based inference through a single image input.
+[Feb.25 2024] Referring to SAM (Meta), the implementation of TapAutomaticMaskGenerator enables the automatic generation of diverse masks, each accompanied by its corresponding caption.
+[Feb.25 2024] FlashAttention of flash-attn is not available on some devices, Attention implemented with pytorch is equivalent to replace FlashAttention of flash-attn, now flash-attn is not required to be installed.
 
 ## Installation
 
 ### Preliminaries
 
 ``torch``
-
-``flash-attn`` >= 2.3.3 (Install the pre-built wheel distribution from [URL](https://github.com/Dao-AILab/flash-attention/releases))
 
 ``gradio-image-prompter`` (for GradioApp, Install from [URL](https://github.com/PhyscalX/gradio-image-prompter))
 
@@ -29,13 +21,14 @@ We present **T**okenize **A**nything via **P**rompting, a unified and promptable
 Clone this repository to local disk and install:
 
 ```bash
+git clone https://github.com/Youlixiya/tokenize-anything.git
 cd tokenize-anything && pip install .
 ```
 
 You can also install from the remote repository: 
 
 ```bash
-pip install git+ssh://git@github.com/baaivision/tokenize-anything.git
+pip install git+ssh://git@github.com/Youlixiya/tokenize-anything.git
 ```
 
 ## Quick Start
@@ -93,24 +86,10 @@ Two versions of the model are available with different image encoders.
 | **LVIS-1203**   | LVIS concepts | [🤗 HF link](https://huggingface.co/BAAI/tokenize-anything/blob/main/concepts/lvis_1203.pkl) |
 | **COCO-80**   | COCO concepts  | [🤗 HF link](https://huggingface.co/BAAI/tokenize-anything/blob/main/concepts/coco_80.pkl) |
 
-## Contact
-- **We are looking** for research interns at BAAI Vision Team.
-If you are interested in working with us on **Vision Foundation Models** (e.g., SAM variants), please contact [Xinlong Wang](https://www.xloong.wang/) (`wangxinlong@baai.ac.cn`).
 
 ## License
 [Apache License 2.0](LICENSE)
 
-## Citation
-
-```
-@article{pan2023tap,
-  title={Tokenize Anything via Prompting},
-  author={Pan, Ting and Tang, Lulu and Wang, Xinlong and Shan, Shiguang},
-  journal={arXiv preprint arXiv:2312.09128},
-  year={2023}
-}
-```
-
 ## Acknowledgement
 
-We thank the repositories: [SAM](https://github.com/facebookresearch/segment-anything), [EVA](https://github.com/baaivision/EVA), [LLaMA](https://github.com/facebookresearch/llama), [FlashAttention](https://github.com/Dao-AILab/flash-attention), [Gradio](https://github.com/gradio-app/gradio), [Detectron2](https://github.com/facebookresearch/detectron2) and [CodeWithGPU](https://github.com/seetacloud/codewithgpu).
+We thank the repositories: [TAP](https://github.com/baaivision/tokenize-anything), [SAM](https://github.com/facebookresearch/segment-anything), [EVA](https://github.com/baaivision/EVA), [LLaMA](https://github.com/facebookresearch/llama), [FlashAttention](https://github.com/Dao-AILab/flash-attention), [Gradio](https://github.com/gradio-app/gradio), [Detectron2](https://github.com/facebookresearch/detectron2) and [CodeWithGPU](https://github.com/seetacloud/codewithgpu).

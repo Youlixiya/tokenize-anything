@@ -153,11 +153,12 @@ class TapPredictor:
         if not self.is_image_set:
             raise RuntimeError("An image must be set with .set_image(...) before mask prediction.")
 
-        masks, iou_predictions, low_res_masks, captions = self.predict_torch(points, return_logits)
+        masks, iou_predictions, low_res_masks, captions, sem_tokens = self.predict_torch(points, return_logits)
         masks_np = masks.detach().cpu().numpy()
         iou_predictions_np = iou_predictions.detach().cpu().numpy()
         low_res_masks_np = low_res_masks.detach().cpu().numpy()
-        return masks_np, iou_predictions_np, low_res_masks_np, captions
+        sem_tokens_np = sem_tokens.detach().cpu().numpy()
+        return masks_np, iou_predictions_np, low_res_masks_np, captions, sem_tokens_np
             
     @torch.no_grad()
     def predict_torch(

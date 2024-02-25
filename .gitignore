@@ -53,3 +53,4 @@ __pycache__
 .gradle
 *.iml
 local.properties
+checkpoints
