@@ -1,11 +1,13 @@
-<div align="center">
+<!-- <div align="center"> -->
 
 <h1>Tokenize Anything via Prompting</h1>
 <br><br><image src="assets/model_overview.png"/>
 
 ## News
 [Feb.25 2024] Referring to SAM (Meta), TapPredictor has been implemented to enable multiple prompt-based inference through a single image input.
+
 [Feb.25 2024] Referring to SAM (Meta), the implementation of TapAutomaticMaskGenerator enables the automatic generation of diverse masks, each accompanied by its corresponding caption.
+
 [Feb.25 2024] FlashAttention of flash-attn is not available on some devices, Attention implemented with pytorch is equivalent to replace FlashAttention of flash-attn, now flash-attn is not required to be installed.
 
 ## Installation
